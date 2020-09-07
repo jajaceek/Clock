@@ -7,6 +7,8 @@ import java.util.Calendar;
 
 public class MyFrame extends JFrame {
 
+
+    JFrame frame = new JFrame();
     SimpleDateFormat timeFormat;
     SimpleDateFormat dayFormat;
     SimpleDateFormat dateFormat;
@@ -18,33 +20,40 @@ public class MyFrame extends JFrame {
     String date;
 
     MyFrame() {
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("The Clock and Date");
-        this.setLayout(new FlowLayout());
-        this.setLocationRelativeTo(null);
-        this.setSize(350, 200);
-        this.setResizable(false);
 
-        timeFormat = new SimpleDateFormat("hh:mm:ss a");
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle("The Clock and Date");
+        frame.getContentPane().setBackground(Color.black);
+        frame.setLayout(new FlowLayout());
+        frame.setLocationRelativeTo(null);
+        frame.setSize(350, 200);
+        frame.setResizable(false);
+        frame.setBackground(Color.BLACK);
+        frame.setForeground(new Color(0x00FF00));
+//        frame.setOp
+
+        timeFormat = new SimpleDateFormat("HH:mm:ss");
         dayFormat = new SimpleDateFormat("EEEE");
         dateFormat = new SimpleDateFormat(("dd MMMM yyyy"));
 
         timeLabel = new JLabel();
         timeLabel.setFont(new Font("Arial", Font.PLAIN, 50));
         timeLabel.setForeground(new Color(0x00FF00));
-        timeLabel.setBackground(Color.BLACK);
-        timeLabel.setOpaque(true);
+
 
         dayLabel = new JLabel();
         dayLabel.setFont(new Font("Arial", Font.PLAIN, 35));
+        dayLabel.setForeground(new Color(0x00FF00));
 
         dateLabel = new JLabel();
         dateLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        dateLabel.setForeground(new Color(0x00FF00));
 
-        this.add(timeLabel);
-        this.add(dayLabel);
-        this.add(dateLabel);
-        this.setVisible(true);
+        frame.add(timeLabel);
+        frame.add(dayLabel);
+        frame.add(dateLabel);
+        frame.setVisible(true);
 
         setTime();
     }
